@@ -1,0 +1,1 @@
+This folder will contain all of the Structural Design Patterns discussed in the [second course](https://codewithmosh.com/p/design-patterns-part2) of the [Design Patterns](https://codewithmosh.com/p/design-patterns) series.

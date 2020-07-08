@@ -1,0 +1,1 @@
+This folder will contain all of the Behavioral Design Patterns discussed in the [first course](https://codewithmosh.com/p/design-patterns-part1) of the [Design Patterns](https://codewithmosh.com/p/design-patterns) series.

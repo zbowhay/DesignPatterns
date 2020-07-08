@@ -1,0 +1,29 @@
+{
+  "name": "designpatterns",
+  "version": "1.0.0",
+  "description": "A project used to follow along with Mosh's Design Patterns course",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run compile && ts-node index.ts",
+    "compile": "tsc",
+    "test": "echo \"There are no tests!\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zbowhay/DesignPatterns.git"
+  },
+  "keywords": [
+    "Design",
+    "Patterns"
+  ],
+  "author": "Zachary Bowhay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zbowhay/DesignPatterns/issues"
+  },
+  "homepage": "https://github.com/zbowhay/DesignPatterns#readme",
+  "devDependencies": {
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.6"
+  }
+}
