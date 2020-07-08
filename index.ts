@@ -14,3 +14,5 @@ editor.undo();
 console.log(editor.content); // second content
 editor.undo();
 console.log(editor.content); // first content
+editor.undo();
+console.log(editor.content); // empty string
