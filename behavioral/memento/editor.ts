@@ -1,22 +1,44 @@
-
+import { EditorState } from './editorState';
+import { History } from './history';
 
 export class Editor {
     private _content = '';
-    private history: Array<string> = [];
+    private _title = '';
+    private history = new History();
 
     constructor() {}
 
-    public get content() {
+    get content() {
         return this._content;
     }
 
-    public set content(v : string) {
-        this.history.push(this.content);
+    set content(v : string) {
+        this.createState();
         this._content = v;
     }
-    
-    public undo() {
-        this._content = this.history.pop() || '';
+
+    get title() {
+        return this._title;
+    }
+
+    set title(v: string) {
+        this.createState();
+        this._title = v;
+    }
+
+    createState() {
+        this.history.push(new EditorState(this.content, this.title));
+    }
+
+    restore() {
+        const state: EditorState = this.history.pop();
+        this._content = state.content;
+        this._title = state.title;
+    }
+
+    display() {
+        console.log(`Title = ${this.title}`);
+        console.log(`Content = ${this.content}`);
     }
 }
 
