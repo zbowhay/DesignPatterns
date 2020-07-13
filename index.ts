@@ -1,5 +1,6 @@
-import { Editor, Canvas } from './behavioral';
+import { Editor, Canvas, BrowserHistory } from './behavioral';
 import { SelectionTool, BrushTool, EraserTool } from './behavioral/state/canvasTools';
+
 
 // ==============================================
 // ========= BEHAVIORAL DESIGN PATTERNS =========
@@ -35,3 +36,21 @@ canvas.mouseUp();
 canvas.setCurrentTool(select);
 canvas.mouseDown(); // select behavior
 canvas.mouseUp();
+
+
+
+// 3) Iterator Pattern
+// implement a browser history type feature
+const browserHistory = new BrowserHistory();
+browserHistory.push('google.com');
+browserHistory.push('youtube.com');
+browserHistory.push('amazon.com');
+const browserHistoryIterator1 = browserHistory.createIterator();
+while (!browserHistoryIterator1.isDone()) {
+    console.log(browserHistoryIterator1.current());
+    browserHistoryIterator1.next();
+}
+// or now with forEach
+const browserHistoryIterator2 = browserHistory.createIterator();
+browserHistoryIterator2.forEach((val) => console.log(val));
+
