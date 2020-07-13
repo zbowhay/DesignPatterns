@@ -12,7 +12,7 @@ export class ListIterator<T> implements Iterator {
     private list: T[];
 
     constructor(list: T[]) {
-        this.list = list;
+        this.list = Object.assign([], list);
     }
 
     next(): void {
@@ -33,7 +33,7 @@ export class ObjectIterator implements Iterator {
     private props: string[] = [];
 
     constructor(obj: StringIndexedObj) {
-        this.obj = obj;
+        this.obj = Object.assign({}, obj);
         this.props = Object.keys(this.obj);
     }
 
@@ -64,7 +64,7 @@ export class ListForEachIterator<T> implements ForEachIterator {
     private list: T[];
 
     constructor(list: T[]) {
-        this.list = list;
+        this.list = Object.assign([], list);
     }
 
     next(): void {

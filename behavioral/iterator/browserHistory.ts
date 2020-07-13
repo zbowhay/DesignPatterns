@@ -13,6 +13,6 @@ export class BrowserHistory {
     }
 
     createIterator(): ForEachIterator {
-        return new ListForEachIterator(Object.assign([], this.urls));
+        return new ListForEachIterator(this.urls);
     }
 }
