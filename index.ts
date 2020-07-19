@@ -1,4 +1,4 @@
-import { Editor, Canvas, BrowserHistory, ImageStorage, BlackAndWhiteFilter, PNGCompressor, GenerateReportTask, TransferMoneyTask } from './behavioral';
+import { Editor, Canvas, BrowserHistory, ImageStorage, BlackAndWhiteFilter, PNGCompressor, GenerateReportTask, TransferMoneyTask, PopupWindow, ToolWindow, CustomWindow } from './behavioral';
 import { SelectionTool, BrushTool, EraserTool } from './behavioral/state/canvasTools';
 
 
@@ -72,3 +72,13 @@ const generateReport = new GenerateReportTask();
 const transferMoney = new TransferMoneyTask();
 transferMoney.execute();
 generateReport.execute();
+// 5) exercise
+const popup = new PopupWindow();
+const tool = new ToolWindow();
+const custom = new CustomWindow();
+tool.close();
+popup.close();
+custom.afterCloseHandler = (metaData) => {
+    console.log(`Still open? ${metaData.isOpen}`);
+};
+custom.close();
