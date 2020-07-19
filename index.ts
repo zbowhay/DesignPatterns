@@ -1,4 +1,4 @@
-import { Editor, Canvas, BrowserHistory } from './behavioral';
+import { Editor, Canvas, BrowserHistory, ImageStorage, BlackAndWhiteFilter, PNGCompressor } from './behavioral';
 import { SelectionTool, BrushTool, EraserTool } from './behavioral/state/canvasTools';
 
 
@@ -54,3 +54,11 @@ while (!browserHistoryIterator1.isDone()) {
 const browserHistoryIterator2 = browserHistory.createIterator();
 browserHistoryIterator2.forEach((val) => console.log(val));
 
+
+
+// 4) Strategy Pattern
+// implements an image storage solution that allows for compression and filters
+const bwFilter = new BlackAndWhiteFilter();
+const pngCompressor = new PNGCompressor();
+const imageStorage = new ImageStorage(pngCompressor, bwFilter);
+imageStorage.store('./some/picture.png');
