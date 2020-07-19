@@ -1,4 +1,4 @@
-import { Editor, Canvas, BrowserHistory, ImageStorage, BlackAndWhiteFilter, PNGCompressor } from './behavioral';
+import { Editor, Canvas, BrowserHistory, ImageStorage, BlackAndWhiteFilter, PNGCompressor, GenerateReportTask, TransferMoneyTask } from './behavioral';
 import { SelectionTool, BrushTool, EraserTool } from './behavioral/state/canvasTools';
 
 
@@ -62,3 +62,13 @@ const bwFilter = new BlackAndWhiteFilter();
 const pngCompressor = new PNGCompressor();
 const imageStorage = new ImageStorage(pngCompressor, bwFilter);
 imageStorage.store('./some/picture.png');
+
+
+
+// 5) Template Pattern
+// implements a banking application and utilizes the Template pattern to extract similar functiontionality out of the generateReport and transferMoney tasks into an abstract class Task that acts as a 'template'
+// useful when you have a series of steps that follow a similar template.  You can extract the similarities out into an abstract class to maintain better control and reduce repetition.
+const generateReport = new GenerateReportTask();
+const transferMoney = new TransferMoneyTask();
+transferMoney.execute();
+generateReport.execute();
