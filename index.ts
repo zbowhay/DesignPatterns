@@ -1,5 +1,6 @@
-import { Editor, Canvas, BrowserHistory, ImageStorage, BlackAndWhiteFilter, PNGCompressor, GenerateReportTask, TransferMoneyTask, PopupWindow, ToolWindow, CustomWindow } from './behavioral';
+import { Editor, Canvas, BrowserHistory, ImageStorage, BlackAndWhiteFilter, PNGCompressor, GenerateReportTask, TransferMoneyTask, PopupWindow, ToolWindow, CustomWindow, CustomerService, AddCustomerCommand, Button } from './behavioral';
 import { SelectionTool, BrushTool, EraserTool } from './behavioral/state/canvasTools';
+import { ImageEditor } from './behavioral/command/imageEditorApp/imageEditor';
 
 
 // ==============================================
@@ -82,3 +83,17 @@ custom.afterCloseHandler = (metaData) => {
     console.log(`Still open? ${metaData.isOpen}`);
 };
 custom.close();
+
+
+
+// 6) Command Pattern
+// say we are creating a framework for developers to use to put together a GUI.  One GUI element could be a button.  We don't know what the developers will want to use the button for in the future
+// but we do know that they should be able to define some kind of functionality that should be executed when it is clicked.  We can use the command pattern to allow them to define custom 
+// behavior or 'commands' that we can invoke from our Button class using a common interface.
+const customerService = new CustomerService();
+const command = new AddCustomerCommand(customerService);
+const addCustomerButton = new Button(command);
+addCustomerButton.click();
+// composite commands
+const imageEditor = new ImageEditor(undefined);
+imageEditor.applyPreset();
