@@ -4,3 +4,4 @@ export * from './iterator';
 export * from './strategy';
 export * from './template';
 export * from './command';
+export * from './observer';

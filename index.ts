@@ -1,4 +1,4 @@
-import { Editor, Canvas, BrowserHistory, ImageStorage, BlackAndWhiteFilter, PNGCompressor, GenerateReportTask, TransferMoneyTask, PopupWindow, ToolWindow, CustomWindow, CustomerService, AddCustomerCommand, Button } from './behavioral';
+import { Editor, Canvas, BrowserHistory, ImageStorage, BlackAndWhiteFilter, PNGCompressor, GenerateReportTask, TransferMoneyTask, PopupWindow, ToolWindow, CustomWindow, CustomerService, AddCustomerCommand, Button, Chart, Spreadsheet, DataSource } from './behavioral';
 import { SelectionTool, BrushTool, EraserTool } from './behavioral/state/canvasTools';
 import { ImageEditor } from './behavioral/command/imageEditorApp/imageEditor';
 
@@ -97,3 +97,19 @@ addCustomerButton.click();
 // composite commands
 const imageEditor = new ImageEditor(undefined);
 imageEditor.applyPreset();
+
+
+
+// 7) Observer Pattern
+// observers
+const chart = new Chart();
+const spreadsheet = new Spreadsheet();
+// subjects
+const graphData = new DataSource();
+const excelData = new DataSource();
+// setup observation
+graphData.addObserver(chart);
+excelData.addObserver(spreadsheet);
+// add data to each subject, triggers an update on each of the observers.
+graphData.value = 10;
+excelData.value = 5;
